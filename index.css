@@ -61,7 +61,7 @@ body {
 
 main {
     width: 100%;
-    margin: var(--spacing-xl) 0 0 0;
+    margin: var(--spacing-lg) 0 0 0;
 }
 
 h1 {
@@ -265,8 +265,9 @@ p {
     align-items: center;
     width: 100%;
     max-width: var(--standard-width);
-    padding: 0 var(--spacing-md);
-    margin: 0 0 var(--spacing-xl) 0;
+    padding: 0 var(--spacing-md) 0 0;
+    margin: 0 0 var(--spacing-lg) 0;
+    box-sizing: border-box;
 }
 
 .navbar > img {
@@ -539,7 +540,7 @@ p {
     display: flex;
     justify-content: center;
     position: relative;
-    padding: calc(var(--spacing-xl) * 3) 0 0 0;
+    padding: calc(var(--spacing-xl) * 2) 0 0 0;
 }
 
 .global-section::before {
@@ -548,7 +549,7 @@ p {
     height: 1200px;
     background-color: var(--primary-accent);
     position: absolute;
-    top: -32px;
+    top: 0;
     left: 0;
     transform: skewY(-10deg);
     z-index: -1;
@@ -601,9 +602,9 @@ p {
     content: "";
     background-color: var(--bg-white);
     width: 100%;
-    height: 100%;
+    height: 120%;
     position: absolute;
-    top: -122px;
+    top: -72px;
     z-index: -1;
 }
 
@@ -702,10 +703,19 @@ p {
     justify-content: center;
     background-color: var(--bg-light);
     padding: var(--spacing-xl);
+    position: relative;
+}
+
+.footer .copyright {
+    position: absolute;
+    bottom: 0;
+    font-weight: 700;
+    font-size: var(--secondary-text-size);
 }
 
 .footer .section-container {
     display: flex;
+    flex: none;
 }
 
 .footer .col {
@@ -763,23 +773,75 @@ p {
 }
 
 @media only screen and (max-width: 850px) {
-    /* .partners-grid img {
-        width: 100%;
-        height: auto;
-    } */
-}
-
-/* Tablet Size */
-
-@media only screen and (max-width: 768px) {
     :root {
         --h1-size: 64px;
         --h1-height: 72px;
         --h3-size: 34px;
     }
+    
+    .integrations-section .col-left {
+        width: 65%;
+    }
+
+    .integrations-section .col-right {
+        width: 35%;
+    }
+
+    /* Why us section */
+    .why-section {
+        padding: var(--spacing-xl) 0;
+    }
+
+    /* Footer */
+
+    .footer {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+}
+
+/* Tablet Size */
+
+@media only screen and (max-width: 768px) {
 
     .partners-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    /* Unified Platform */
+    .unified-platform-section h2 {
+        width: 100%;
+    }
+
+    /* Integration section */
+    .integrations-section .card-container {
+        flex-direction: column;
+    }
+
+    .integrations-section .card-container .card {
+        width: 100%;
+    }
+
+    /* Why us section */
+
+    .why-section .card-container {
+        flex-wrap: wrap;
+    }
+
+    .why-section .card-container .card {
+        width: 50%;
+        margin: var(--spacing-md) 0;
+    }
+
+    /* Global section */
+    .global-section .card-container {
+        flex-wrap: wrap;
+        margin: var(--spacing-xl) 0;
+        padding-bottom: calc(var(--spacing-lg) * 1.5);
+    }
+
+    .global-section .card-container .card {
+        width: 50%;
+        margin: var(--spacing-md) 0;
     }
 }
 
@@ -787,5 +849,172 @@ p {
 /* Mobile Size */
 
 @media only screen and (max-width: 550px) {
+    :root {
+        --h1-size: 60px;
+        --h1-height: 65px;
+        --h3-size: 34px;
+    }
 
+    .two-column {
+        flex-direction: column;
+    }
+
+    .two-column .col-left {
+        width: 100%;
+    }
+
+    .two-column .col-right {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    /* Navbar */
+
+    .navbar .menu {
+        display: none;
+    }
+
+    .navbar .navbar-button {
+        display: none;
+    }
+
+    .hamburger-button {
+        width: 50px;
+        height: 30px;
+        background-color: rgba(250, 250, 250, 0.25);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hamburger-button .bar {
+        width: 18px;
+        height: 2px;
+        background-color: var(--bg-white);
+        margin: 1px 0;
+        
+    }
+
+    #gradient-canvas {
+        height: 920px;
+    }
+
+    /* .navbar {
+        margin: 0;
+    } */
+
+    /* Hero Styles */
+
+    main {
+        margin: 0;
+    }
+
+    .hero .hero-phone-container {
+        display: none;
+    }
+
+    .partners-grid img {
+        width: 75%;
+        height: auto;
+    }
+
+    /* Integration section */
+    .integrations-section {
+        padding: calc(var(--spacing-lg) * 1.75) 0;
+    }
+
+    .integrations-section::before {
+        height: 1020px;
+    }
+
+    .integrations-section .col-right {
+        display: none;
+    }
+
+    /* Why section */
+
+    .why-section .card-container .card {
+        width: 100%;
+    }
+
+    .why-section .card-container .card .icon {
+        height: 40px;
+    }
+
+    /* Global Section */
+
+    .global-section::before {
+        height: 1600px;
+    }
+
+    .global-section .card-container .card {
+        width: 100%;
+        margin: var(--spacing-sm) 0;
+    }
+
+    #globe {
+        opacity: 10%;
+    }
+
+    /* Our team */
+
+    .virtual-events-section {
+        padding-bottom: var(--spacing-xl);
+    }
+
+    .virtual-events-section .col-left {
+        padding-right: 0;
+    }
+
+    .virtual-events-section .swipe-sessions-card {
+        width: 100%;
+        height: 75%;
+    }
+
+    .virtual-events-section .swipe-sessions-card .card-top {
+        height: 40%;
+    }
+
+    #sessions-logo {
+        width: 275px;
+    }
+
+    .swipe-sessions-card .card-bottom .card-content p {
+        width: 100%;
+    }
+
+    .swipe-sessions-card .card-top .avatars img:nth-of-type(3) {
+        display: none;
+    }
+
+    /* Footer */
+    .footer .section-container {
+        flex-wrap: wrap;
+    }
+
+    .footer .col {
+        width: 50%;
+        margin: var(--spacing-md) 0;
+    }
+
+    .footer .col a {
+        font-size: var(--secondary-text-size);
+    }
+
+    .footer .icon-link img {
+        width: 18px;
+    }
+
+    .footer .copyright {
+        font-size: 10px;
+    }
+
+}
+
+html, body {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
 }
